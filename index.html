@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Zenith</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #2D3436;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #6C5CE7 0%, #5641E5 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-logo {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .hero-logo span {
+            color: #00D9A5;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .scroll-indicator {
+            margin-top: 40px;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+            opacity: 0.7;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #2D3436;
+        }
+
+        /* Apps Section */
+        .apps-section {
+            background: #F8F9FA;
+        }
+
+        .apps-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .app-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #6C5CE7 0%, #5641E5 100%);
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .app-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .app-category {
+            color: #6C5CE7;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .app-description {
+            color: #636E72;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .play-store-btn {
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .play-store-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .play-store-btn img {
+            height: 45px;
+        }
+
+        .coming-soon-card {
+            opacity: 0.7;
+            border: 2px dashed #B2BEC3;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .coming-soon-card:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .coming-soon-icon {
+            background: #E0E0E0 !important;
+            color: #636E72;
+        }
+
+        /* Values Section */
+        .values-section {
+            background: white;
+        }
+
+        .values-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .value-item {
+            text-align: center;
+            width: 220px;
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #00D9A5 0%, #00B894 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .value-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .value-description {
+            color: #636E72;
+            font-size: 0.9rem;
+        }
+
+        /* About Section */
+        .about-section {
+            background: #F8F9FA;
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #636E72;
+            margin-bottom: 20px;
+        }
+
+        .about-mission {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #6C5CE7;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #6C5CE7 0%, #5641E5 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-section .section-title {
+            color: white;
+        }
+
+        .contact-text {
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: white;
+            transition: background 0.3s ease;
+        }
+
+        .contact-email:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2D3436;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #B2BEC3;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-copyright {
+            color: #636E72;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-logo {
+                font-size: 2.2rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .apps-container, .values-container {
+                gap: 20px;
+            }
+
+            .app-card, .value-item {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-logo">APP <span>ZENITH</span></h1>
+        <p class="hero-tagline">Simple Apps. Real Value.</p>
+        <p class="hero-description">
+            We build mobile applications that make everyday life a little better —
+            focused on health, productivity, and personal well-being.
+        </p>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+        </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section class="apps-section">
+        <h2 class="section-title">Our Apps</h2>
+        <div class="apps-container">
+            <!-- Stepzy Card -->
+            <div class="app-card">
+                <div class="app-icon">👟</div>
+                <h3 class="app-name">Stepzy</h3>
+                <p class="app-category">Health & Fitness</p>
+                <p class="app-description">
+                    Walk, earn points, and redeem rewards. Stay motivated to reach your daily fitness goals.
+                </p>
+                <a href="https://play.google.com/store/apps/details?id=com.appzenith.stepzy" class="play-store-btn" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+                </a>
+            </div>
+
+            <!-- Coming Soon Card -->
+            <div class="app-card coming-soon-card">
+                <div class="app-icon coming-soon-icon">✦</div>
+                <h3 class="app-name">Coming Soon</h3>
+                <p class="app-category">Stay Tuned</p>
+                <p class="app-description">
+                    We're working on something new. Follow us to be the first to know!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <h2 class="section-title">Why App Zenith?</h2>
+        <div class="values-container">
+            <div class="value-item">
+                <div class="value-icon">🔒</div>
+                <h3 class="value-title">Privacy First</h3>
+                <p class="value-description">Your data belongs to you. We collect only what's essential.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">✨</div>
+                <h3 class="value-title">Simple & Clean</h3>
+                <p class="value-description">No clutter, no bloat. Just apps that work beautifully.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">🚀</div>
+                <h3 class="value-title">Always Improving</h3>
+                <p class="value-description">We listen to feedback and keep making things better.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <p class="about-text">
+                App Zenith is an independent mobile app development studio. We create
+                thoughtfully designed applications that solve real problems and add
+                genuine value to people's daily lives.
+            </p>
+            <p class="about-mission">Our mission: Build apps people love using.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="contact-text">Questions? Feedback? We'd love to hear from you.</p>
+        <a href="mailto:team@appzenith.com" class="contact-email">
+            ✉️ team@appzenith.com
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://sites.google.com/view/appzenith/privacy-policy" target="_blank">Privacy Policy</a>
+        </div>
+        <p class="footer-copyright">© 2025 App Zenith. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
